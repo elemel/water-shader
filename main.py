@@ -45,7 +45,9 @@ class MyWindow(pyglet.window.Window):
         self.time += dt
 
 def main():
-    window = MyWindow(fullscreen=True)
+    config = pyglet.gl.Config(double_buffer=True, sample_buffers=1, samples=4,
+                              depth_size=8)
+    window = MyWindow(fullscreen=True, config=config)
     pyglet.clock.schedule_interval(window.step, 1.0 / 60.0)
     pyglet.app.run()
 
